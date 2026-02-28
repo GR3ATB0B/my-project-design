@@ -1,0 +1,90 @@
+{
+  "_meta": {
+    "models": {
+      "stats": "Summary counts displayed as stat cards at the top of the dashboard.",
+      "agentActivity": "A group of recent activity events attributed to a specific agent.",
+      "activityEvent": "A single event in an agent's activity feed — a task completion, memory save, message sent, etc."
+    },
+    "relationships": [
+      "Each agentActivity group contains many activityEvents",
+      "Stats are aggregated from Tasks and Agents across the system"
+    ]
+  },
+  "stats": {
+    "activeAgents": 2,
+    "tasksWaiting": 4,
+    "tasksDoing": 2,
+    "tasksNeedsAttention": 1,
+    "tasksDone": 18
+  },
+  "agentActivities": [
+    {
+      "agentId": "agent-1",
+      "agentName": "Hermes",
+      "agentStatus": "online",
+      "events": [
+        {
+          "id": "evt-1",
+          "type": "task_completed",
+          "description": "Checked in for SFO → JFK flight on Thursday",
+          "timestamp": "2026-02-27T09:14:00Z"
+        },
+        {
+          "id": "evt-2",
+          "type": "message_sent",
+          "description": "Sent weekly standup summary to Slack #team channel",
+          "timestamp": "2026-02-27T09:02:00Z"
+        },
+        {
+          "id": "evt-3",
+          "type": "memory_saved",
+          "description": "Learned preference: prefers window seats on flights",
+          "timestamp": "2026-02-27T08:45:00Z"
+        },
+        {
+          "id": "evt-4",
+          "type": "task_completed",
+          "description": "Organized inbox — archived 23 newsletters, flagged 3 important emails",
+          "timestamp": "2026-02-27T07:30:00Z"
+        },
+        {
+          "id": "evt-5",
+          "type": "task_started",
+          "description": "Researching restaurant options for Friday dinner in Manhattan",
+          "timestamp": "2026-02-27T09:16:00Z"
+        }
+      ]
+    },
+    {
+      "agentId": "agent-2",
+      "agentName": "Atlas",
+      "agentStatus": "online",
+      "events": [
+        {
+          "id": "evt-6",
+          "type": "task_completed",
+          "description": "Pulled latest GitHub notifications and created summary",
+          "timestamp": "2026-02-27T08:55:00Z"
+        },
+        {
+          "id": "evt-7",
+          "type": "needs_attention",
+          "description": "Cannot access Google Calendar — token expired, re-authentication needed",
+          "timestamp": "2026-02-27T08:20:00Z"
+        },
+        {
+          "id": "evt-8",
+          "type": "task_completed",
+          "description": "Updated project board with sprint progress from Linear",
+          "timestamp": "2026-02-26T22:10:00Z"
+        }
+      ]
+    },
+    {
+      "agentId": "agent-3",
+      "agentName": "Echo",
+      "agentStatus": "offline",
+      "events": []
+    }
+  ]
+}

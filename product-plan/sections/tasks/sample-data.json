@@ -1,0 +1,215 @@
+{
+  "_meta": {
+    "models": {
+      "taskColumn": "A column on the kanban board representing a workflow stage.",
+      "task": "A unit of work with a title, description, assigned agent, priority, and status history.",
+      "taskAgent": "A lightweight agent reference used for assignment dropdowns and card display.",
+      "taskActivity": "A log entry for changes made to a task (status change, edit, comment)."
+    },
+    "relationships": [
+      "Each taskColumn contains many tasks",
+      "Each task belongs to one taskColumn",
+      "Each task is assigned to one taskAgent",
+      "Each task has many taskActivity entries"
+    ]
+  },
+  "columns": [
+    {
+      "id": "col-todo",
+      "name": "To Do",
+      "order": 0
+    },
+    {
+      "id": "col-doing",
+      "name": "Doing",
+      "order": 1
+    },
+    {
+      "id": "col-failed",
+      "name": "Failed",
+      "order": 2
+    },
+    {
+      "id": "col-done",
+      "name": "Done",
+      "order": 3
+    }
+  ],
+  "agents": [
+    { "id": "agent-1", "name": "Hermes", "avatarColor": "#6366f1" },
+    { "id": "agent-2", "name": "Atlas", "avatarColor": "#f59e0b" },
+    { "id": "agent-3", "name": "Echo", "avatarColor": "#8b5cf6" },
+    { "id": "agent-4", "name": "Nova", "avatarColor": "#ec4899" }
+  ],
+  "tasks": [
+    {
+      "id": "task-1",
+      "title": "Research restaurant options for Friday dinner",
+      "description": "Find 3-5 highly rated Italian restaurants in Manhattan near Midtown, check availability for 4 people at 7:30pm, and compare prices.",
+      "columnId": "col-doing",
+      "agentId": "agent-1",
+      "priority": "high",
+      "createdAt": "2026-02-27T08:00:00Z",
+      "updatedAt": "2026-02-27T09:16:00Z",
+      "activity": [
+        { "id": "act-1", "type": "status_change", "from": "To Do", "to": "Doing", "timestamp": "2026-02-27T09:16:00Z" },
+        { "id": "act-2", "type": "created", "description": "Task created", "timestamp": "2026-02-27T08:00:00Z" }
+      ]
+    },
+    {
+      "id": "task-2",
+      "title": "Monitor GitHub PRs for review requests",
+      "description": "Watch all repos under buildermethods/* for new pull requests that need review. Summarize changes and flag anything urgent.",
+      "columnId": "col-doing",
+      "agentId": "agent-2",
+      "priority": "medium",
+      "createdAt": "2026-02-26T10:00:00Z",
+      "updatedAt": "2026-02-27T08:55:00Z",
+      "activity": [
+        { "id": "act-3", "type": "status_change", "from": "To Do", "to": "Doing", "timestamp": "2026-02-26T14:00:00Z" },
+        { "id": "act-4", "type": "created", "description": "Task created", "timestamp": "2026-02-26T10:00:00Z" }
+      ]
+    },
+    {
+      "id": "task-3",
+      "title": "Draft blog post on AI productivity workflows",
+      "description": "Write an outline and first draft covering how AI agents can automate repetitive knowledge work. Target 1,500 words, casual but informative tone.",
+      "columnId": "col-doing",
+      "agentId": "agent-4",
+      "priority": "medium",
+      "createdAt": "2026-02-27T07:00:00Z",
+      "updatedAt": "2026-02-27T09:00:00Z",
+      "activity": [
+        { "id": "act-5", "type": "status_change", "from": "To Do", "to": "Doing", "timestamp": "2026-02-27T09:00:00Z" },
+        { "id": "act-6", "type": "created", "description": "Task created", "timestamp": "2026-02-27T07:00:00Z" }
+      ]
+    },
+    {
+      "id": "task-4",
+      "title": "Send weekly standup summary to Slack",
+      "description": "Compile updates from all agents into a single summary and post to #team channel every Monday at 9am.",
+      "columnId": "col-done",
+      "agentId": "agent-1",
+      "priority": "low",
+      "createdAt": "2026-02-26T08:00:00Z",
+      "updatedAt": "2026-02-27T09:02:00Z",
+      "activity": [
+        { "id": "act-7", "type": "status_change", "from": "Doing", "to": "Done", "timestamp": "2026-02-27T09:02:00Z" },
+        { "id": "act-8", "type": "status_change", "from": "To Do", "to": "Doing", "timestamp": "2026-02-27T08:50:00Z" },
+        { "id": "act-9", "type": "created", "description": "Task created", "timestamp": "2026-02-26T08:00:00Z" }
+      ]
+    },
+    {
+      "id": "task-5",
+      "title": "Check in for SFO → JFK flight",
+      "description": "Check in online for Thursday's flight, select a window seat, and download the boarding pass.",
+      "columnId": "col-done",
+      "agentId": "agent-1",
+      "priority": "high",
+      "createdAt": "2026-02-26T12:00:00Z",
+      "updatedAt": "2026-02-27T09:14:00Z",
+      "activity": [
+        { "id": "act-10", "type": "status_change", "from": "Doing", "to": "Done", "timestamp": "2026-02-27T09:14:00Z" },
+        { "id": "act-11", "type": "status_change", "from": "To Do", "to": "Doing", "timestamp": "2026-02-27T08:30:00Z" },
+        { "id": "act-12", "type": "created", "description": "Task created", "timestamp": "2026-02-26T12:00:00Z" }
+      ]
+    },
+    {
+      "id": "task-6",
+      "title": "Re-authenticate Google Calendar connection",
+      "description": "The OAuth token for Atlas's Google Calendar integration has expired. Need to re-authenticate to restore calendar sync.",
+      "columnId": "col-failed",
+      "agentId": "agent-2",
+      "priority": "high",
+      "createdAt": "2026-02-27T08:20:00Z",
+      "updatedAt": "2026-02-27T08:20:00Z",
+      "activity": [
+        { "id": "act-13", "type": "status_change", "from": "Doing", "to": "Failed", "timestamp": "2026-02-27T08:20:00Z" },
+        { "id": "act-14", "type": "created", "description": "Task auto-created from connection error", "timestamp": "2026-02-27T08:20:00Z" }
+      ]
+    },
+    {
+      "id": "task-7",
+      "title": "Organize inbox and flag important emails",
+      "description": "Archive newsletters and promotional emails, flag anything from known contacts or with urgent keywords.",
+      "columnId": "col-done",
+      "agentId": "agent-1",
+      "priority": "low",
+      "createdAt": "2026-02-26T22:00:00Z",
+      "updatedAt": "2026-02-27T07:30:00Z",
+      "activity": [
+        { "id": "act-15", "type": "status_change", "from": "Doing", "to": "Done", "timestamp": "2026-02-27T07:30:00Z" },
+        { "id": "act-16", "type": "edited", "description": "Updated description with keyword list", "timestamp": "2026-02-26T23:00:00Z" },
+        { "id": "act-17", "type": "created", "description": "Task created", "timestamp": "2026-02-26T22:00:00Z" }
+      ]
+    },
+    {
+      "id": "task-8",
+      "title": "Compile competitor analysis notes",
+      "description": "Research and summarize features of competing AI assistant products. Focus on pricing, integrations, and unique capabilities. Deliver as a structured Notion page.",
+      "columnId": "col-done",
+      "agentId": "agent-4",
+      "priority": "medium",
+      "createdAt": "2026-02-26T10:00:00Z",
+      "updatedAt": "2026-02-27T08:30:00Z",
+      "activity": [
+        { "id": "act-18", "type": "status_change", "from": "Doing", "to": "Done", "timestamp": "2026-02-27T08:30:00Z" },
+        { "id": "act-19", "type": "created", "description": "Task created", "timestamp": "2026-02-26T10:00:00Z" }
+      ]
+    },
+    {
+      "id": "task-9",
+      "title": "Set up morning briefing automation",
+      "description": "Configure Echo to send a daily Telegram message at 7:30am with weather, calendar events, and top news headlines.",
+      "columnId": "col-todo",
+      "agentId": "agent-3",
+      "priority": "medium",
+      "createdAt": "2026-02-27T07:00:00Z",
+      "updatedAt": "2026-02-27T07:00:00Z",
+      "activity": [
+        { "id": "act-20", "type": "created", "description": "Task created", "timestamp": "2026-02-27T07:00:00Z" }
+      ]
+    },
+    {
+      "id": "task-10",
+      "title": "Schedule social media posts for next week",
+      "description": "Prepare and schedule posts for Twitter and LinkedIn covering the product launch announcement. Include images and hashtags.",
+      "columnId": "col-todo",
+      "agentId": "agent-4",
+      "priority": "low",
+      "createdAt": "2026-02-27T09:00:00Z",
+      "updatedAt": "2026-02-27T09:00:00Z",
+      "activity": [
+        { "id": "act-21", "type": "created", "description": "Task created", "timestamp": "2026-02-27T09:00:00Z" }
+      ]
+    },
+    {
+      "id": "task-11",
+      "title": "Update sprint board from Linear",
+      "description": "Sync latest sprint progress data from Linear into the project board.",
+      "columnId": "col-done",
+      "agentId": "agent-2",
+      "priority": "low",
+      "createdAt": "2026-02-26T18:00:00Z",
+      "updatedAt": "2026-02-26T22:10:00Z",
+      "activity": [
+        { "id": "act-22", "type": "status_change", "from": "Doing", "to": "Done", "timestamp": "2026-02-26T22:10:00Z" },
+        { "id": "act-23", "type": "created", "description": "Task created", "timestamp": "2026-02-26T18:00:00Z" }
+      ]
+    },
+    {
+      "id": "task-12",
+      "title": "Book conference room for Monday sync",
+      "description": "",
+      "columnId": "col-done",
+      "agentId": "agent-1",
+      "priority": "low",
+      "createdAt": "2026-02-26T16:00:00Z",
+      "updatedAt": "2026-02-26T17:45:00Z",
+      "activity": [
+        { "id": "act-24", "type": "status_change", "from": "Doing", "to": "Done", "timestamp": "2026-02-26T17:45:00Z" },
+        { "id": "act-25", "type": "created", "description": "Task created", "timestamp": "2026-02-26T16:00:00Z" }
+      ]
+    }
+  ]
+}

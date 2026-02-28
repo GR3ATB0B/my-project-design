@@ -1,0 +1,246 @@
+{
+  "_meta": {
+    "models": {
+      "agent": "A running instance of the OpenClaw AI assistant with status, connections, skills, and activity history.",
+      "connection": "A linked external service or chat app through which the agent communicates.",
+      "skill": "A plugin or integration that extends an agent's capabilities.",
+      "activityEvent": "A single event in an agent's activity log — task completion, message sent, memory saved, etc.",
+      "agentStats": "Aggregated metrics for an agent including uptime, token usage, and task counts."
+    },
+    "relationships": [
+      "Each agent has many connections",
+      "Each agent has many skills",
+      "Each agent has many activityEvents",
+      "Each agent has one agentStats summary"
+    ]
+  },
+  "agents": [
+    {
+      "id": "agent-1",
+      "name": "Hermes",
+      "status": "online",
+      "avatarColor": "#6366f1",
+      "currentTask": "Researching restaurant options for Friday dinner in Manhattan",
+      "connections": [
+        { "id": "conn-1", "service": "Slack", "channel": "#team", "status": "connected" },
+        { "id": "conn-2", "service": "Gmail", "channel": "nash@example.com", "status": "connected" },
+        { "id": "conn-3", "service": "WhatsApp", "channel": "+1 (555) 012-3456", "status": "connected" }
+      ],
+      "skills": [
+        { "id": "skill-1", "name": "Email Manager", "description": "Read, triage, draft, and send emails" },
+        { "id": "skill-2", "name": "Travel Booker", "description": "Search flights, hotels, and restaurants and make reservations" },
+        { "id": "skill-3", "name": "Calendar Sync", "description": "Read and create events across Google Calendar and Outlook" }
+      ],
+      "activity": [
+        {
+          "id": "evt-1",
+          "type": "task_started",
+          "description": "Researching restaurant options for Friday dinner in Manhattan",
+          "timestamp": "2026-02-27T09:16:00Z"
+        },
+        {
+          "id": "evt-2",
+          "type": "task_completed",
+          "description": "Checked in for SFO → JFK flight on Thursday",
+          "timestamp": "2026-02-27T09:14:00Z"
+        },
+        {
+          "id": "evt-3",
+          "type": "message_sent",
+          "description": "Sent weekly standup summary to Slack #team channel",
+          "timestamp": "2026-02-27T09:02:00Z"
+        },
+        {
+          "id": "evt-4",
+          "type": "memory_saved",
+          "description": "Learned preference: prefers window seats on flights",
+          "timestamp": "2026-02-27T08:45:00Z"
+        },
+        {
+          "id": "evt-5",
+          "type": "task_completed",
+          "description": "Organized inbox — archived 23 newsletters, flagged 3 important emails",
+          "timestamp": "2026-02-27T07:30:00Z"
+        },
+        {
+          "id": "evt-6",
+          "type": "task_completed",
+          "description": "Booked conference room for Monday morning sync",
+          "timestamp": "2026-02-26T17:45:00Z"
+        }
+      ],
+      "stats": {
+        "uptimeSeconds": 259200,
+        "totalTokensUsed": 1842500,
+        "totalCost": 14.73,
+        "tasksCompleted": 47,
+        "tasksInProgress": 1
+      }
+    },
+    {
+      "id": "agent-2",
+      "name": "Atlas",
+      "status": "online",
+      "avatarColor": "#f59e0b",
+      "currentTask": "Monitoring GitHub PRs for review requests",
+      "connections": [
+        { "id": "conn-4", "service": "GitHub", "channel": "buildermethods/*", "status": "connected" },
+        { "id": "conn-5", "service": "Linear", "channel": "OpenClaw workspace", "status": "connected" },
+        { "id": "conn-6", "service": "Google Calendar", "channel": "nash@example.com", "status": "error" }
+      ],
+      "skills": [
+        { "id": "skill-4", "name": "Code Review", "description": "Review pull requests and suggest improvements" },
+        { "id": "skill-5", "name": "Sprint Tracker", "description": "Sync and summarize sprint progress from Linear and Jira" },
+        { "id": "skill-6", "name": "Notification Digest", "description": "Aggregate and summarize notifications from connected services" }
+      ],
+      "activity": [
+        {
+          "id": "evt-7",
+          "type": "task_completed",
+          "description": "Pulled latest GitHub notifications and created summary",
+          "timestamp": "2026-02-27T08:55:00Z"
+        },
+        {
+          "id": "evt-8",
+          "type": "needs_attention",
+          "description": "Cannot access Google Calendar — token expired, re-authentication needed",
+          "timestamp": "2026-02-27T08:20:00Z"
+        },
+        {
+          "id": "evt-9",
+          "type": "task_completed",
+          "description": "Updated project board with sprint progress from Linear",
+          "timestamp": "2026-02-26T22:10:00Z"
+        },
+        {
+          "id": "evt-10",
+          "type": "message_sent",
+          "description": "Posted PR review summary to Slack #dev channel",
+          "timestamp": "2026-02-26T18:30:00Z"
+        }
+      ],
+      "stats": {
+        "uptimeSeconds": 172800,
+        "totalTokensUsed": 923400,
+        "totalCost": 7.21,
+        "tasksCompleted": 31,
+        "tasksInProgress": 1
+      }
+    },
+    {
+      "id": "agent-3",
+      "name": "Echo",
+      "status": "offline",
+      "avatarColor": "#8b5cf6",
+      "currentTask": null,
+      "connections": [
+        { "id": "conn-7", "service": "Telegram", "channel": "@echo_bot", "status": "disconnected" },
+        { "id": "conn-8", "service": "Spotify", "channel": "nash_playlist", "status": "disconnected" }
+      ],
+      "skills": [
+        { "id": "skill-7", "name": "Music Curator", "description": "Create and manage Spotify playlists based on mood and preferences" },
+        { "id": "skill-8", "name": "Daily Briefing", "description": "Compile a morning summary of news, weather, and calendar events" }
+      ],
+      "activity": [],
+      "stats": {
+        "uptimeSeconds": 0,
+        "totalTokensUsed": 284100,
+        "totalCost": 2.15,
+        "tasksCompleted": 12,
+        "tasksInProgress": 0
+      }
+    },
+    {
+      "id": "agent-4",
+      "name": "Nova",
+      "status": "online",
+      "avatarColor": "#ec4899",
+      "currentTask": "Drafting blog post outline on AI productivity workflows",
+      "connections": [
+        { "id": "conn-9", "service": "Notion", "channel": "Content workspace", "status": "connected" },
+        { "id": "conn-10", "service": "Gmail", "channel": "content@example.com", "status": "connected" }
+      ],
+      "skills": [
+        { "id": "skill-9", "name": "Content Writer", "description": "Draft blog posts, emails, and social media content" },
+        { "id": "skill-10", "name": "Research Assistant", "description": "Search the web and synthesize findings into structured summaries" }
+      ],
+      "activity": [
+        {
+          "id": "evt-11",
+          "type": "task_started",
+          "description": "Drafting blog post outline on AI productivity workflows",
+          "timestamp": "2026-02-27T09:00:00Z"
+        },
+        {
+          "id": "evt-12",
+          "type": "task_completed",
+          "description": "Compiled research notes on competitor AI assistant features",
+          "timestamp": "2026-02-27T08:30:00Z"
+        },
+        {
+          "id": "evt-13",
+          "type": "task_completed",
+          "description": "Sent newsletter draft to content@example.com for review",
+          "timestamp": "2026-02-26T16:20:00Z"
+        },
+        {
+          "id": "evt-14",
+          "type": "memory_saved",
+          "description": "Learned brand voice: casual but informative, avoid jargon",
+          "timestamp": "2026-02-26T14:00:00Z"
+        },
+        {
+          "id": "evt-15",
+          "type": "task_completed",
+          "description": "Published social media posts for the week across Twitter and LinkedIn",
+          "timestamp": "2026-02-25T11:45:00Z"
+        }
+      ],
+      "stats": {
+        "uptimeSeconds": 86400,
+        "totalTokensUsed": 567800,
+        "totalCost": 4.52,
+        "tasksCompleted": 22,
+        "tasksInProgress": 1
+      }
+    },
+    {
+      "id": "agent-5",
+      "name": "Sentinel",
+      "status": "offline",
+      "avatarColor": "#10b981",
+      "currentTask": null,
+      "connections": [
+        { "id": "conn-11", "service": "Slack", "channel": "#alerts", "status": "disconnected" },
+        { "id": "conn-12", "service": "PagerDuty", "channel": "OpenClaw team", "status": "disconnected" },
+        { "id": "conn-13", "service": "AWS CloudWatch", "channel": "prod-us-east", "status": "disconnected" }
+      ],
+      "skills": [
+        { "id": "skill-11", "name": "Incident Responder", "description": "Detect, triage, and escalate infrastructure alerts" },
+        { "id": "skill-12", "name": "Log Analyzer", "description": "Parse and summarize application logs for anomalies" },
+        { "id": "skill-13", "name": "Status Reporter", "description": "Generate and post uptime and incident status reports" }
+      ],
+      "activity": [
+        {
+          "id": "evt-16",
+          "type": "task_completed",
+          "description": "Generated weekly uptime report — 99.97% availability",
+          "timestamp": "2026-02-24T06:00:00Z"
+        },
+        {
+          "id": "evt-17",
+          "type": "needs_attention",
+          "description": "Elevated error rate detected on API gateway, opened PagerDuty incident",
+          "timestamp": "2026-02-23T22:14:00Z"
+        }
+      ],
+      "stats": {
+        "uptimeSeconds": 0,
+        "totalTokensUsed": 156200,
+        "totalCost": 1.18,
+        "tasksCompleted": 8,
+        "tasksInProgress": 0
+      }
+    }
+  ]
+}

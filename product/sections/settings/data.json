@@ -1,0 +1,87 @@
+{
+  "_meta": {
+    "models": {
+      "generalSettings": "User preferences for agent defaults and appearance.",
+      "connectionService": "An external service that can be connected to or disconnected from the platform.",
+      "privacySettings": "Toggle-based privacy controls for data collection, memory, and sandboxing."
+    },
+    "relationships": [
+      "General settings and privacy settings are singleton objects (one per user)",
+      "Connection services is a list of available integrations with individual connect/disconnect state"
+    ]
+  },
+  "general": {
+    "agentNamePrefix": "Agent",
+    "defaultPriority": "medium",
+    "timezone": "America/New_York",
+    "theme": "system",
+    "language": "en"
+  },
+  "connections": [
+    {
+      "id": "svc-slack",
+      "service": "Slack",
+      "description": "Send and receive messages in Slack channels and DMs",
+      "connected": true
+    },
+    {
+      "id": "svc-gmail",
+      "service": "Gmail",
+      "description": "Read, draft, and send emails through your Gmail account",
+      "connected": true
+    },
+    {
+      "id": "svc-github",
+      "service": "GitHub",
+      "description": "Monitor repos, review pull requests, and manage issues",
+      "connected": true
+    },
+    {
+      "id": "svc-google-calendar",
+      "service": "Google Calendar",
+      "description": "Read and create calendar events across your Google accounts",
+      "connected": false
+    },
+    {
+      "id": "svc-linear",
+      "service": "Linear",
+      "description": "Sync sprint progress and manage project tracking",
+      "connected": true
+    },
+    {
+      "id": "svc-notion",
+      "service": "Notion",
+      "description": "Read and write pages in your Notion workspaces",
+      "connected": true
+    },
+    {
+      "id": "svc-whatsapp",
+      "service": "WhatsApp",
+      "description": "Send and receive messages via WhatsApp Business",
+      "connected": false
+    },
+    {
+      "id": "svc-telegram",
+      "service": "Telegram",
+      "description": "Communicate through Telegram bots and channels",
+      "connected": false
+    },
+    {
+      "id": "svc-spotify",
+      "service": "Spotify",
+      "description": "Create and manage playlists, control playback",
+      "connected": false
+    },
+    {
+      "id": "svc-pagerduty",
+      "service": "PagerDuty",
+      "description": "Receive and triage infrastructure alerts and incidents",
+      "connected": false
+    }
+  ],
+  "privacy": {
+    "dataCollection": true,
+    "memoryPersistence": true,
+    "sandboxedMode": false
+  }
+}

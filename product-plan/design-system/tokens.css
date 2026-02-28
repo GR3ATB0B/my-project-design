@@ -1,0 +1,13 @@
+/* Design Tokens for OpenClaw HQ */
+
+:root {
+  /* Colors */
+  --color-primary: sky;
+  --color-secondary: violet;
+  --color-neutral: slate;
+
+  /* Typography */
+  --font-heading: 'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'Fira Code', monospace;
+}
